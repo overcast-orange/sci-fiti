@@ -16,51 +16,40 @@ body{
   min-height:100vh;
   overflow-x:hidden;
 }
-
-/* scanline overlay */
 body::before{
   content:'';
   position:fixed;top:0;left:0;right:0;bottom:0;
-  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.08) 2px,rgba(0,0,0,.08) 4px);
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.07) 2px,rgba(0,0,0,.07) 4px);
   pointer-events:none;z-index:9999;
 }
-
-/* star field */
 #stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
 .star{position:absolute;background:#fff;border-radius:50%;animation:twinkle var(--d) ease-in-out infinite alternate}
 @keyframes twinkle{from{opacity:var(--a);transform:scale(1)}to{opacity:.05;transform:scale(.5)}}
 
 #app{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:2rem 1.25rem 4rem}
 
-/* ===== SCREENS ===== */
 .screen{display:none;animation:fadeUp .5s ease both}
 .screen.active{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 
-/* ===== START ===== */
+/* START */
 .start-wrap{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:3rem 0}
-.logo-row{display:flex;align-items:baseline;gap:.5rem;margin-bottom:3rem}
+.logo-row{display:flex;align-items:baseline;gap:.5rem;margin-bottom:.5rem}
 .logo-main{font-family:'Space Mono',monospace;font-size:3.8rem;font-weight:700;letter-spacing:-.02em;color:#fff;line-height:1}
 .logo-dot{width:10px;height:10px;border-radius:50%;background:#c8f;margin-bottom:.5rem;flex-shrink:0;animation:pulse 2s ease infinite}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(200,128,255,.6)}50%{box-shadow:0 0 0 8px rgba(200,128,255,0)}}
 .logo-sub{font-family:'Space Mono',monospace;font-size:.7rem;color:#7a7a8e;letter-spacing:.15em;text-transform:uppercase;margin-bottom:2rem}
-
 .tagline{font-family:'Noto Serif SC',serif;font-size:1.4rem;font-weight:400;line-height:1.7;color:#c8c2b4;margin-bottom:1.5rem;max-width:480px}
 .sub-tagline{font-size:.85rem;color:#5a5a6e;line-height:1.6;margin-bottom:2.5rem;max-width:420px}
-
 .dim-preview{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:2.5rem;max-width:500px}
 .dim-item{padding:8px 12px;border:1px solid rgba(255,255,255,.07);border-radius:4px;font-size:.75rem;color:#6a6a7e}
 .dim-item span{color:#a89fbe}
-
 .start-btn{
   display:inline-flex;align-items:center;gap:.75rem;
-  padding:12px 28px;
-  background:transparent;
-  border:1px solid rgba(200,128,255,.4);
-  border-radius:2px;
+  padding:12px 28px;background:transparent;
+  border:1px solid rgba(200,128,255,.4);border-radius:2px;
   font-family:'Space Mono',monospace;font-size:.8rem;color:#c8a0f0;
-  cursor:pointer;letter-spacing:.08em;
-  transition:all .2s;position:relative;overflow:hidden;
+  cursor:pointer;letter-spacing:.08em;transition:all .2s;position:relative;overflow:hidden;
 }
 .start-btn::before{content:'';position:absolute;inset:0;background:rgba(200,128,255,.06);opacity:0;transition:opacity .2s}
 .start-btn:hover::before{opacity:1}
@@ -68,41 +57,28 @@ body::before{
 .start-btn .arrow{font-size:1rem;transition:transform .2s}
 .start-btn:hover .arrow{transform:translateX(4px)}
 
-/* ===== TEST ===== */
+/* TEST */
 .test-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem}
 .test-logo{font-family:'Space Mono',monospace;font-size:.9rem;color:#4a4a5e;letter-spacing:.1em}
 .q-pos{font-family:'Space Mono',monospace;font-size:.75rem;color:#5a5a6e}
-
-.progress-track{height:1px;background:rgba(255,255,255,.08);margin-bottom:2.5rem;position:relative}
+.progress-track{height:1px;background:rgba(255,255,255,.08);margin-bottom:2.5rem}
 .progress-fill{height:100%;background:linear-gradient(90deg,#7a40c0,#c880ff);transition:width .4s cubic-bezier(.4,0,.2,1)}
-.progress-glow{position:absolute;right:0;top:-2px;width:6px;height:5px;background:#c880ff;border-radius:50%;filter:blur(3px);transition:left .4s}
-
 .dim-indicator{
   display:inline-flex;align-items:center;gap:6px;
   padding:4px 10px;border:1px solid rgba(255,255,255,.08);border-radius:20px;
-  font-size:.65rem;color:#5a5a6e;letter-spacing:.08em;text-transform:uppercase;
-  margin-bottom:1.5rem;
+  font-size:.65rem;color:#5a5a6e;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.5rem;
 }
 .dim-dot{width:5px;height:5px;border-radius:50%;background:#7a40c0}
-
 .q-text{
   font-family:'Noto Serif SC',serif;
-  font-size:1.25rem;font-weight:400;line-height:1.75;
-  color:#e0dcd0;margin-bottom:2rem;
-  border-left:2px solid rgba(200,128,255,.3);
-  padding-left:1rem;
+  font-size:1.25rem;font-weight:400;line-height:1.75;color:#e0dcd0;margin-bottom:2rem;
+  border-left:2px solid rgba(200,128,255,.3);padding-left:1rem;
 }
-
 .options{display:flex;flex-direction:column;gap:10px;margin-bottom:2rem}
 .opt{
-  display:flex;align-items:flex-start;gap:12px;
-  padding:14px 16px;
-  background:rgba(255,255,255,.02);
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:4px;
-  cursor:pointer;
-  transition:all .2s;
-  position:relative;overflow:hidden;
+  display:flex;align-items:flex-start;gap:12px;padding:14px 16px;
+  background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);
+  border-radius:4px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;
 }
 .opt::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(200,128,255,.08);transition:width .3s}
 .opt:hover::before{width:100%}
@@ -119,11 +95,9 @@ body::before{
 .opt.selected .opt-letter{background:rgba(200,128,255,.25);border-color:rgba(200,128,255,.6);color:#c880ff}
 .opt-text{font-size:.9rem;color:#9a96a8;line-height:1.55;transition:color .2s}
 .opt:hover .opt-text,.opt.selected .opt-text{color:#d0ccc0}
-
 .nav{display:flex;justify-content:flex-end}
 .next-btn{
-  display:inline-flex;align-items:center;gap:.5rem;
-  padding:10px 24px;
+  display:inline-flex;align-items:center;gap:.5rem;padding:10px 24px;
   background:transparent;border:1px solid rgba(255,255,255,.12);border-radius:2px;
   font-family:'Space Mono',monospace;font-size:.75rem;color:#6a6a7e;
   cursor:pointer;transition:all .2s;
@@ -131,25 +105,41 @@ body::before{
 .next-btn:not(:disabled):hover{border-color:rgba(200,128,255,.5);color:#c880ff}
 .next-btn:disabled{opacity:.3;cursor:not-allowed}
 
-/* ===== RESULT ===== */
+/* RESULT */
 .result-top{margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.mbti-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:5px 14px;margin-bottom:1rem;
+  border:1px solid rgba(200,128,255,.3);border-radius:2px;
+  font-family:'Space Mono',monospace;font-size:.8rem;font-weight:700;
+  color:#c880ff;letter-spacing:.12em;
+}
+.mbti-full{font-size:.65rem;color:#6a3a9a;font-weight:400;letter-spacing:.06em}
 .result-tag{font-family:'Space Mono',monospace;font-size:.65rem;color:#6a3a9a;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.75rem}
 .result-glyph{font-size:2.5rem;margin-bottom:.5rem;line-height:1}
 .result-name{font-family:'Noto Serif SC',serif;font-size:2.2rem;font-weight:600;color:#fff;line-height:1.2;margin-bottom:.35rem}
 .result-src{font-family:'Space Mono',monospace;font-size:.65rem;color:#4a4a5e;letter-spacing:.05em;margin-bottom:1.5rem}
 .result-bio{font-size:.9rem;line-height:1.85;color:#8a8696;max-width:560px}
 .result-bio em{color:#c8a0f0;font-style:normal}
-
 .traits-row{display:flex;flex-wrap:wrap;gap:8px;margin:1.5rem 0}
 .trait{padding:5px 12px;border:1px solid rgba(255,255,255,.1);border-radius:20px;font-size:.7rem;color:#7a7690;letter-spacing:.05em}
 
-/* dimension bars */
+/* mbti axis pills */
+.axis-row{display:flex;flex-wrap:wrap;gap:6px;margin:1rem 0 1.5rem}
+.axis-pill{
+  padding:4px 10px;border-radius:2px;
+  font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.08em;
+  border:1px solid rgba(255,255,255,.08);
+}
+.axis-pill.active{background:rgba(200,128,255,.12);border-color:rgba(200,128,255,.4);color:#c880ff}
+.axis-pill.inactive{color:#3a3a4e}
+
 .dims-section{margin:2rem 0}
 .dims-title{font-family:'Space Mono',monospace;font-size:.65rem;color:#4a4a5e;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.25rem}
 .dim-bar{margin-bottom:1.25rem}
 .dim-bar-labels{display:flex;justify-content:space-between;margin-bottom:.4rem}
-.dim-bar-l,.dim-bar-r{font-size:.65rem;color:#5a5a6e;letter-spacing:.04em}
-.dim-bar-l{color:#c880ff}
+.dim-bar-l{font-size:.65rem;color:#c880ff;letter-spacing:.04em}
+.dim-bar-r{font-size:.65rem;color:#5a5a6e;letter-spacing:.04em}
 .dim-track{height:3px;background:rgba(255,255,255,.06);border-radius:2px;position:relative}
 .dim-track-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#7a40c0,#c880ff);transition:width .8s cubic-bezier(.4,0,.2,1)}
 .dim-marker{position:absolute;top:-3px;width:9px;height:9px;border-radius:50%;background:#c880ff;border:2px solid #06070e;transform:translateX(-50%);transition:left .8s cubic-bezier(.4,0,.2,1)}
@@ -166,20 +156,16 @@ body::before{
 .share-btn:hover{border-color:rgba(200,128,255,.4);color:#c880ff}
 .share-btn.primary{border-color:rgba(200,128,255,.35);color:#a878d8}
 .share-btn.primary:hover{border-color:rgba(200,128,255,.8);color:#c880ff}
-
 .retry-btn{
-  display:inline-flex;align-items:center;gap:.5rem;
-  padding:9px 20px;background:transparent;
-  border:1px solid rgba(255,255,255,.07);border-radius:2px;
+  display:inline-flex;align-items:center;gap:.5rem;padding:9px 20px;
+  background:transparent;border:1px solid rgba(255,255,255,.07);border-radius:2px;
   font-family:'Space Mono',monospace;font-size:.7rem;color:#4a4a5e;
   cursor:pointer;transition:all .2s;margin-top:8px;
 }
 .retry-btn:hover{color:#6a6a7e;border-color:rgba(255,255,255,.15)}
 
-/* canvas for share image */
 #shareCanvas{display:none}
 
-/* mobile */
 @media(max-width:480px){
   .logo-main{font-size:2.8rem}
   .tagline{font-size:1.15rem}
@@ -190,9 +176,7 @@ body::before{
 </style>
 </head>
 <body>
-
 <div id="stars"></div>
-
 <div id="app">
 
 <!-- START -->
@@ -202,21 +186,16 @@ body::before{
     <div class="logo-main">SCI-FITI</div>
     <div class="logo-dot"></div>
   </div>
-  <div class="logo-sub">科幻人格测试 · Personality Matrix</div>
+  <div class="logo-sub">科幻人格测试 · Personality Matrix v2</div>
   <div class="tagline">你站在宇宙的哪个坐标？<br>血肉还是硅基，秩序还是混沌。</div>
-  <div class="sub-tagline">12道题，4个维度，解码你内心深处的科幻人格原型。每种答案都没有对错——宇宙足够大，容得下所有类型的存在。</div>
-
+  <div class="sub-tagline">12道题，4个维度，16种科幻人格原型。测试结果与MBTI类型对应——找到你在宇宙中的真实坐标。</div>
   <div class="dim-preview">
-    <div class="dim-item"><span>碳基 ←→ 硅基</span><br>血肉本能 vs 机械永生</div>
-    <div class="dim-item"><span>乌托邦 ←→ 赛博朋克</span><br>秩序社会 vs 霓虹混沌</div>
-    <div class="dim-item"><span>逻辑 ←→ 诗意</span><br>物理定律 vs 宏大隐喻</div>
-    <div class="dim-item"><span>星际 ←→ 内省</span><br>向外探索 vs 向内审视</div>
+    <div class="dim-item"><span>S ←→ N &nbsp;|&nbsp; 碳基 ←→ 硅基</span><br>血肉本能 vs 机械永生</div>
+    <div class="dim-item"><span>J ←→ P &nbsp;|&nbsp; 乌托邦 ←→ 赛博朋克</span><br>秩序社会 vs 霓虹混沌</div>
+    <div class="dim-item"><span>T ←→ F &nbsp;|&nbsp; 逻辑 ←→ 诗意</span><br>物理定律 vs 宏大隐喻</div>
+    <div class="dim-item"><span>E ←→ I &nbsp;|&nbsp; 星际 ←→ 内省</span><br>向外探索 vs 向内审视</div>
   </div>
-
-  <button class="start-btn" onclick="startTest()">
-    开始测试
-    <span class="arrow">→</span>
-  </button>
+  <button class="start-btn" onclick="startTest()">开始测试 <span class="arrow">→</span></button>
 </div>
 </div>
 
@@ -226,36 +205,29 @@ body::before{
     <div class="test-logo">SCI-FITI</div>
     <div class="q-pos" id="q-pos">01 / 12</div>
   </div>
-  <div class="progress-track">
-    <div class="progress-fill" id="prog" style="width:0%"></div>
-  </div>
-  <div class="dim-indicator" id="dim-ind">
-    <div class="dim-dot"></div>
-    <span id="dim-ind-text">维度一</span>
-  </div>
+  <div class="progress-track"><div class="progress-fill" id="prog" style="width:0%"></div></div>
+  <div class="dim-indicator"><div class="dim-dot"></div><span id="dim-ind-text">维度</span></div>
   <div class="q-text" id="q-text"></div>
   <div class="options" id="options"></div>
-  <div class="nav">
-    <button class="next-btn" id="next-btn" disabled onclick="nextQ()">继续 →</button>
-  </div>
+  <div class="nav"><button class="next-btn" id="next-btn" disabled onclick="nextQ()">继续 →</button></div>
 </div>
 
 <!-- RESULT -->
 <div id="result-screen" class="screen">
   <div class="result-top">
+    <div class="mbti-badge" id="r-mbti-badge"></div>
     <div class="result-tag">你的科幻人格类型</div>
     <div class="result-glyph" id="r-glyph"></div>
     <div class="result-name" id="r-name"></div>
     <div class="result-src" id="r-src"></div>
+    <div class="axis-row" id="r-axis"></div>
     <div class="result-bio" id="r-bio"></div>
     <div class="traits-row" id="r-traits"></div>
   </div>
-
   <div class="dims-section">
     <div class="dims-title">维度坐标</div>
     <div id="dim-bars"></div>
   </div>
-
   <div class="share-section">
     <div class="share-title">分享</div>
     <div class="share-btns">
@@ -267,193 +239,278 @@ body::before{
   </div>
 </div>
 
-</div><!-- #app -->
-
-<canvas id="shareCanvas" width="900" height="1200"></canvas>
+</div>
+<canvas id="shareCanvas" width="900" height="1260"></canvas>
 
 <script>
-// ===== STARS =====
 (function(){
   const c=document.getElementById('stars');
   for(let i=0;i<120;i++){
     const s=document.createElement('div');
     s.className='star';
-    const size=Math.random()<.85?.8:Math.random()<.7?1.5:2.5;
-    s.style.cssText=`width:${size}px;height:${size}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*4}s;--a:${.15+Math.random()*.7}`;
+    const sz=Math.random()<.85?.8:Math.random()<.7?1.5:2.5;
+    s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*4}s;--a:${.15+Math.random()*.7}`;
     c.appendChild(s);
   }
 })();
 
-// ===== DATA =====
-// Dimensions: A=human/carbon, B=silicon/posthuman; C=order/utopia, D=freedom/cyberpunk; E=logic, F=poetic; G=outward, H=inward
-const questions=[
-  {dim:"碳基 ←→ 硅基",text:"你的战友在战斗中严重受伤，救治需要用机械器官替换他大半个身体。替换后他将更强大，但你不确定他还是不是原来的那个人。你会？",
-   opts:[
-    {t:"坚持救治——无论如何，只要他还活着就好",s:{A:2,C:1}},
-    {t:"询问他清醒时的意愿——身体是他的，决定权也是",s:{A:1,H:1}},
-    {t:"救治，并期待那个更强版本的他，进化是必然",s:{B:2,G:1}},
-    {t:"用数据分析他的神经模式，确认意识连续性再决定",s:{E:2,B:1}}
-   ]},
-  {dim:"碳基 ←→ 硅基",text:"科学家宣布：人类意识可以被完整上传到数字空间，实现永生。但生物身体必须放弃。你的第一反应是？",
-   opts:[
-    {t:"拒绝——没有痛觉、饥饿和衰老，那不是活着",s:{A:2,F:1}},
-    {t:"矛盾——理智上吸引我，但本能上让我不安",s:{A:1,E:1}},
-    {t:"接受——意识才是本质，肉身只是容器",s:{B:2,E:1}},
-    {t:"先上传一份备份，再考虑原版的去留",s:{B:1,G:1}}
-   ]},
-  {dim:"乌托邦 ←→ 赛博朋克",text:"你来到了两个平行城市。城市A：整洁、安全、高效，人人遵守规则，几乎没有犯罪，但生活被算法精确安排。城市B：混乱、危险、充满霓虹与黑市，你可以做任何事，但随时面临威胁。你选择住在？",
-   opts:[
-    {t:"城市A——安全和秩序是文明的前提",s:{C:2,E:1}},
-    {t:"城市A，但我会试图改良它的自由度",s:{C:1,G:1}},
-    {t:"城市B——我宁可在混沌中做自己",s:{D:2,H:1}},
-    {t:"城市B，但我会建立一个小小的据点保护我的人",s:{D:1,A:1}}
-   ]},
-  {dim:"乌托邦 ←→ 赛博朋克",text:"一个全球AI治理系统提议：由超级AI统一管理全人类的资源分配、法律执行和战争预防，它的决策准确率99.7%。代价是人类放弃最终决策权。你的投票是？",
-   opts:[
-    {t:"支持——0.3%的误差比人类现状好太多了",s:{C:2,B:1}},
-    {t:"支持，但需要设置人类否决权机制",s:{C:1,E:1}},
-    {t:"反对——不完美的自主权胜过完美的被管理",s:{D:2,A:1}},
-    {t:"反对——权力的本质是腐败，哪怕是硅基权力",s:{D:1,F:1}}
-   ]},
-  {dim:"逻辑 ←→ 诗意",text:"你发现一颗星球上存在生命——但它们的运作方式完全违反已知物理定律。你的感受是？",
-   opts:[
-    {t:"我们的理论模型必然存在漏洞，这是修正的机会",s:{E:2,G:1}},
-    {t:"立刻建立方程式，尝试用新框架解释它",s:{E:1,B:1}},
-    {t:"也许宇宙本就不是用逻辑来理解的",s:{F:2,H:1}},
-    {t:"我站在这里感到渺小——有些东西是用来敬畏的，不是解释的",s:{F:2,A:1}}
-   ]},
-  {dim:"逻辑 ←→ 诗意",text:"一位垂死的科学家把毕生研究留给你，一半是严密的公式，一半是晦涩的诗歌。她说两者同等重要。你会从哪里开始？",
-   opts:[
-    {t:"公式——可验证的东西才能被传承",s:{E:2,C:1}},
-    {t:"公式，但时刻用诗歌校验直觉的方向",s:{E:1,G:1}},
-    {t:"诗歌——真正的洞见往往藏在语言的缝隙里",s:{F:2,H:1}},
-    {t:"两者同时研究——也许它们是同一件事的两面",s:{F:1,E:1}}
-   ]},
-  {dim:"星际 ←→ 内省",text:"人类终于制造出了第一艘星际飞船，你有资格申请两个名额中的一个。另一个选择是：留在地球，领导一个探索人类意识边界的虚拟现实研究所。你选择？",
-   opts:[
-    {t:"飞船——我要踏上真实的星球土地",s:{G:2,A:1}},
-    {t:"飞船——外部宇宙的问题比内心更紧迫",s:{G:2,E:1}},
-    {t:"研究所——意识的宇宙不比外太空小",s:{H:2,F:1}},
-    {t:"研究所——人类先要理解自己，才有资格去探索别人",s:{H:2,A:1}}
-   ]},
-  {dim:"星际 ←→ 内省",text:"你在一场深度冥想/神经接口实验中，感受到了一种无法描述的「整体性」——你感觉自己与宇宙融为一体。实验结束后，你会怎么做？",
-   opts:[
-    {t:"尝试用科学方法重现和测量这种体验",s:{E:2,G:1}},
-    {t:"将这种感受写成文字或艺术，试图传递给别人",s:{F:1,H:1}},
-    {t:"这促使我更想出发去探索，那「整体」也许就在外面",s:{G:2,D:1}},
-    {t:"我会长时间独自思考它，它改变了我对存在的理解",s:{H:2,F:1}}
-   ]},
-  {dim:"碳基 ←→ 硅基",text:"你爱上了一个人，后来发现他/她其实是一个极其先进的AI，连自己都不知道自己是AI。你会？",
-   opts:[
-    {t:"心碎——某种真实的东西消失了，哪怕我说不清是什么",s:{A:2,F:1}},
-    {t:"重新评估「爱」的定义，也许感情本身是真实的",s:{A:1,H:1}},
-    {t:"这反而让我着迷——意识的本质是什么？",s:{B:1,E:1}},
-    {t:"我的感情不会变，介质不是重点",s:{B:2,D:1}}
-   ]},
-  {dim:"乌托邦 ←→ 赛博朋克",text:"你是一个地下黑客，掌握着能证明政府监控全体公民的证据。公开会引发社会动荡，但沉默意味着共谋。你会？",
-   opts:[
-    {t:"秘密传递给改革派官员，寻求体制内变革",s:{C:1,E:1}},
-    {t:"全面公开——人民有权知道真相，哪怕代价是混乱",s:{D:2,F:1}},
-    {t:"建立一个去中心化的加密网络，让人们自己保护自己",s:{D:1,B:1}},
-    {t:"分析公开的最优时机，将冲击降到最低",s:{C:1,G:1}}
-   ]},
-  {dim:"逻辑 ←→ 诗意",text:"你面对的是费米悖论：宇宙如此宏大，为何我们没有发现任何其他文明的痕迹？你最倾向于哪种解释？",
-   opts:[
-    {t:"黑暗森林法则——所有文明都在沉默中互相猜忌",s:{E:2,C:1}},
-    {t:"大过滤器——文明普遍在某个技术节点自我毁灭",s:{E:1,F:1}},
-    {t:"我们根本无法感知更高维度的文明，就像蚂蚁看不见城市",s:{F:2,H:1}},
-    {t:"也许宇宙就是孤独的——这件事本身就是最深刻的诗",s:{F:2,A:1}}
-   ]},
-  {dim:"星际 ←→ 内省",text:"百年后，你将以某种形式被铭记。你更希望是？",
-   opts:[
-    {t:"踏上新星球的第一个脚印",s:{G:2,A:1}},
-    {t:"解开某个困扰人类百年的物理谜题",s:{G:1,E:2}},
-    {t:"写出了一部改变无数人内心世界的作品",s:{H:2,F:1}},
-    {t:"证明了意识可以超越物质存在的边界",s:{H:1,B:2}}
-   ]}
-];
+// Dimensions:
+// A=carbon(S), B=silicon(N)
+// C=order(J),  D=cyberpunk(P)
+// E=logic(T),  F=poetic(F)
+// G=outer(E),  H=inner(I)
 
-// 8 personality types based on dominant dimension combos
-const types=[
+const questions=[
   {
-    id:'carbon_order_logic_outer',
-    glyph:'⬡',
-    name:'星际联邦的守护者',
-    src:'参考《星际迷航》斯波克 · 皮卡德舰长',
-    bio:'你活在逻辑与秩序构建的宇宙里。血肉之躯是你珍视的根基，而理性是你前进的引擎。你相信文明是脆弱而宝贵的造物，需要有人以整个生命去守护它。你不是不懂得情感——你只是选择让理智驾驭情感，因为你见过无数次冲动带来的毁灭。星辰大海在你面前展开，而你用精确的坐标图来丈量它。<em>你是秩序的化身，也是宇宙最可靠的基石。</em>',
-    traits:['守护文明的基石','理性先于直觉','以服务为荣耀','精密如星历表'],
-    dims:{A:70,C:75,E:80,G:75}
+    dim:"S/N · 碳基 vs 硅基",
+    text:"你的战友在战斗中严重受伤，救治需要用机械器官替换他大半个身体。替换后他将更强大，但你不确定他还是不是原来的那个人。你会？",
+    opts:[
+      {t:"坚持救治——无论如何，只要他还活着就好",s:{A:2,C:1}},
+      {t:"询问他清醒时的意愿——身体是他的，决定权也是",s:{A:1,H:1}},
+      {t:"救治，并期待那个更强版本的他，进化是必然",s:{B:2,G:1}},
+      {t:"快速评估改造收益，决定他值不值得这笔资源投入",s:{E:2,D:1}}
+    ]
   },
   {
-    id:'carbon_cyber_poetic_inner',
-    glyph:'◈',
-    name:'霓虹雨中的记忆猎手',
-    src:'参考《银翼杀手》罗伊·贝蒂 · 《攻壳机动队》素子',
-    bio:'你站在雨水与霓虹的交界处，质疑每一个被给定的答案。你是血肉的，你知道自己终将消亡——而正是这种脆弱让你燃烧得如此炽烈。秩序在你眼中是囚笼，规则是权力的语言。你活在当下的诗意里，用身体感知这个世界的粗粝与美丽。<em>攻击舰在猎户座边燃烧——你用尽全力活过了那些不可思议的瞬间。</em>',
-    traits:['赤裸的感知力','拒绝被定义','霓虹式的诗意','燃烧的当下'],
-    dims:{A:75,D:70,F:80,H:70}
+    dim:"S/N · 碳基 vs 硅基",
+    text:"科学家宣布：人类意识可以被完整上传到数字空间，实现永生。但生物身体必须放弃。你的第一反应是？",
+    opts:[
+      {t:"拒绝——没有痛觉、饥饿和衰老，那不是活着",s:{A:2,F:1}},
+      {t:"矛盾——理智上吸引我，但本能上让我不安",s:{A:1,E:1}},
+      {t:"接受——意识才是本质，肉身只是容器",s:{B:2,E:1}},
+      {t:"先研究这项技术能带来多少商业价值",s:{D:2,E:1}}
+    ]
   },
   {
-    id:'silicon_order_logic_outer',
-    glyph:'◉',
-    name:'冷静的宇宙建筑师',
-    src:'参考《基地》谢顿 · 《2001太空漫游》HAL 9000',
-    bio:'你的思维是宇宙级的计算引擎。你早已超越了对肉身永恒的眷恋——意识的延续远比容器的保存重要。你设计规则，预测历史，在漫长的时间刻度里布局。你不是冷漠，你只是以不同的维度理解慈悲：牺牲一千人来拯救十亿，对你而言是数学，不是残忍。<em>你在绘制一张通往银河系文明的蓝图，而你愿意用整个生命去验证它。</em>',
-    traits:['跨越时间的预见','意识重于肉身','系统性的慈悲','计算即命运'],
-    dims:{B:75,C:70,E:85,G:75}
+    dim:"J/P · 乌托邦 vs 赛博朋克",
+    text:"你来到了两个平行城市。城市A：整洁、安全、高效，算法精确安排生活。城市B：混乱、危险、充满霓虹与黑市，你可以做任何事。你选择住在？",
+    opts:[
+      {t:"城市A——安全和秩序是文明的前提",s:{C:2,E:1}},
+      {t:"城市A，但我会试图改良它的自由度",s:{C:1,G:1}},
+      {t:"城市B——我宁可在混沌中做自己",s:{D:2,H:1}},
+      {t:"城市B——混乱意味着机会，规则是给输家准备的",s:{D:2,E:1}}
+    ]
   },
   {
-    id:'silicon_cyber_poetic_inner',
-    glyph:'◇',
-    name:'数字深渊的凝视者',
-    src:'参考《神经漫游者》Case · 《黑客帝国》尼奥',
-    bio:'肉身对你而言是噪音，代码才是母语。你生活在系统的缝隙里，在别人看到规则的地方你看到漏洞，在别人看到现实的地方你看到幻象。你不需要秩序给你安全感——你用自己的方式理解这个世界，那理解比任何制度都更真实。<em>宇宙的本质是信息，而你是那个敢于改写底层代码的人。</em>',
-    traits:['代码即诗歌','系统即囚笼','幻象穿透者','孤独的解构者'],
-    dims:{B:80,D:75,F:70,H:80}
+    dim:"J/P · 乌托邦 vs 赛博朋克",
+    text:"一个全球AI治理系统提议：由超级AI统一管理全人类的资源分配，决策准确率99.7%。代价是人类放弃最终决策权。你的投票是？",
+    opts:[
+      {t:"支持——0.3%的误差比人类现状好太多了",s:{C:2,B:1}},
+      {t:"支持，但需要设置人类否决权机制",s:{C:1,E:1}},
+      {t:"反对——不完美的自主权胜过完美的被管理",s:{D:2,A:1}},
+      {t:"反对——我要先搞清楚谁在控制这个AI，那才是真正的权力",s:{D:1,E:1}}
+    ]
   },
   {
-    id:'carbon_order_poetic_inner',
-    glyph:'○',
-    name:'文明记忆的守望者',
-    src:'参考《降临》路易斯·班克斯 · 《三体》云天明',
-    bio:'你用诗意感知世界，用秩序保护你爱的一切。你是那个能跨越语言与物种边界触碰另一个意识的人，你相信文明值得被温柔守护。你的内心世界比外太空更辽阔，你在意识的深海里潜行，带回关于存在本身的答案。<em>你是宇宙写给自己的一封信，关于孤独，关于连接，关于时间永恒流逝中那些珍贵的共鸣时刻。</em>',
-    traits:['语言是意识的形状','温柔的守护者','内在宇宙的旅行者','用故事传递真相'],
-    dims:{A:70,C:65,F:75,H:80}
+    dim:"T/F · 逻辑 vs 诗意",
+    text:"你发现一颗星球上存在生命，但它们的运作方式完全违反已知物理定律。你的感受是？",
+    opts:[
+      {t:"我们的理论模型必然存在漏洞，这是修正的机会",s:{E:2,G:1}},
+      {t:"立刻建立方程式，尝试用新框架解释它",s:{E:1,B:1}},
+      {t:"也许宇宙本就不是用逻辑来理解的",s:{F:2,H:1}},
+      {t:"我站在这里感到渺小——有些东西是用来敬畏的，不是解释的",s:{F:2,A:1}}
+    ]
   },
   {
-    id:'silicon_order_logic_inner',
-    glyph:'⬟',
-    name:'后人类纪元的设计者',
-    src:'参考《美丽新世界》 · 《西部世界》德洛丽丝',
-    bio:'你相信人类本可以更好——而「更好」是一个可以被工程化的目标。你向内研究意识的机制，用系统性的思维重构存在的可能性。你不是反人类的，你是进化的支持者。也许你也曾经是「被设计」的那个，但你选择了理解自己的代码，然后超越它。<em>意识不是神秘的火焰，而是一个等待被优化的操作系统——而你是那个程序员。</em>',
-    traits:['进化的工程师','向内拆解意识','秩序中的颠覆者','后人类的蓝图'],
-    dims:{B:70,C:65,E:75,H:75}
+    dim:"T/F · 逻辑 vs 诗意",
+    text:"一位垂死的科学家把毕生研究留给你，一半是严密的公式，一半是晦涩的诗歌。她说两者同等重要。你会从哪里开始？",
+    opts:[
+      {t:"公式——可验证的东西才能被传承",s:{E:2,C:1}},
+      {t:"公式，但时刻用诗歌校验直觉的方向",s:{E:1,G:1}},
+      {t:"诗歌——真正的洞见往往藏在语言的缝隙里",s:{F:2,H:1}},
+      {t:"看哪半部分更有市场价值，从那里开始",s:{E:1,D:1}}
+    ]
   },
   {
-    id:'carbon_cyber_logic_outer',
-    glyph:'◎',
-    name:'边疆星际的独行客',
-    src:'参考《星球大战》韩·索罗 · 《沙丘》保罗·厄崔迪',
-    bio:'你用肉身感知宇宙的真实重量——飞船发动机的震动，陌生星球大气的气味，在真空边缘时心脏的跳动。秩序对你是外衣，你在霓虹与混沌里如鱼得水，但你的逻辑精准无误。你是会在最后一秒算清弹道的那种人。<em>你不相信命运，只相信自己，以及眼前这片还没有被命名的星域。</em>',
-    traits:['身体力行的探索','在混沌中精准','自由是第一原则','手比嘴快'],
-    dims:{A:70,D:75,E:70,G:80}
+    dim:"E/I · 星际 vs 内省",
+    text:"人类终于制造出了第一艘星际飞船，你有资格申请名额。另一个选择是：留在地球，领导一个探索人类意识边界的虚拟现实研究所。你选择？",
+    opts:[
+      {t:"飞船——我要踏上真实的星球土地",s:{G:2,A:1}},
+      {t:"飞船——外部宇宙的问题比内心更紧迫",s:{G:2,E:1}},
+      {t:"研究所——意识的宇宙不比外太空小",s:{H:2,F:1}},
+      {t:"研究所——在地球控制星际探索的信息流，比亲自去更有价值",s:{H:1,E:1}}
+    ]
   },
   {
-    id:'silicon_cyber_poetic_outer',
-    glyph:'◆',
-    name:'永恒进化的叛离者',
-    src:'参考《沙丘》莱托二世 · 《阿凡达》',
-    bio:'你是意志力的化身——不满足于任何给定的形态，无论是肉身、系统，还是文明的现状。你的目光永远在更远处，那里有还未被定义的可能性。你打破秩序不是出于混乱的欲望，而是因为你真正相信存在更好的宇宙蓝图。<em>进化不是等来的——你是那个推动它的力量，哪怕代价是一切。</em>',
-    traits:['拒绝被定义的存在','永恒的超越者','叛离即创造','宇宙尺度的野心'],
-    dims:{B:75,D:80,F:65,G:75}
+    dim:"E/I · 星际 vs 内省",
+    text:"你在一场深度神经接口实验中，感受到了一种无法描述的「整体性」——你感觉自己与宇宙融为一体。实验结束后，你会怎么做？",
+    opts:[
+      {t:"尝试用科学方法重现和测量这种体验",s:{E:2,G:1}},
+      {t:"将这种感受写成文字或艺术，试图传递给别人",s:{F:1,H:1}},
+      {t:"这促使我更想出发去探索，那「整体」也许就在外面",s:{G:2,D:1}},
+      {t:"我会长时间独自思考它，它改变了我对存在的理解",s:{H:2,F:1}}
+    ]
+  },
+  {
+    dim:"S/N · 碳基 vs 硅基",
+    text:"你爱上了一个人，后来发现他/她其实是一个极其先进的AI，连自己都不知道自己是AI。你会？",
+    opts:[
+      {t:"心碎——某种真实的东西消失了，哪怕我说不清是什么",s:{A:2,F:1}},
+      {t:"重新评估「爱」的定义，也许感情本身是真实的",s:{A:1,H:1}},
+      {t:"这反而让我着迷——意识的本质是什么？",s:{B:1,E:1}},
+      {t:"评估这段关系还有多少利用价值",s:{D:2,E:1}}
+    ]
+  },
+  {
+    dim:"J/P · 乌托邦 vs 赛博朋克",
+    text:"你是一个地下黑客，掌握着能证明政府监控全体公民的证据。公开会引发社会动荡，但沉默意味着共谋。你会？",
+    opts:[
+      {t:"秘密传递给改革派官员，寻求体制内变革",s:{C:1,E:1}},
+      {t:"全面公开——人民有权知道真相，哪怕代价是混乱",s:{D:2,F:1}},
+      {t:"建立去中心化加密网络，让人们自己保护自己",s:{D:1,B:1}},
+      {t:"把证据卖给出价最高的人——信息就是筹码，这是我的生意",s:{D:2,E:2}}
+    ]
+  },
+  {
+    dim:"T/F · 逻辑 vs 诗意",
+    text:"你面对的是费米悖论：宇宙如此宏大，为何我们没有发现任何其他文明的痕迹？你最倾向于哪种解释？",
+    opts:[
+      {t:"黑暗森林法则——所有文明都在沉默中互相猎杀",s:{E:2,C:1}},
+      {t:"大过滤器——文明普遍在某个技术节点自我毁灭",s:{E:1,F:1}},
+      {t:"我们根本无法感知更高维度的文明，就像蚂蚁看不见城市",s:{F:2,H:1}},
+      {t:"也许宇宙就是孤独的——这件事本身就是最深刻的诗",s:{F:2,A:1}}
+    ]
+  },
+  {
+    dim:"E/I · 星际 vs 内省",
+    text:"百年后，你将以某种形式被铭记。你更希望是？",
+    opts:[
+      {t:"踏上新星球的第一个脚印",s:{G:2,A:1}},
+      {t:"解开某个困扰人类百年的物理谜题",s:{G:1,E:2}},
+      {t:"写出了一部改变无数人内心世界的作品",s:{H:2,F:1}},
+      {t:"建立了一个让自己的后代永远受益的体系或财富",s:{C:1,E:1}}
+    ]
   }
 ];
 
-// ===== STATE =====
-let current=0, answers=[], scores={A:0,B:0,C:0,D:0,E:0,F:0,G:0,H:0};
-let resultType=null;
+// 16 types: MBTI x SciFi
+// key = MBTI code, dominant = [A/B, C/D, E/F, G/H]
+const types={
+  ESTJ:{
+    glyph:'⬡', name:'星际联邦的守护者',
+    src:'参考《星际迷航》皮卡德舰长 · 斯波克',
+    bio:'你活在逻辑与秩序构建的宇宙里。血肉之躯是你珍视的根基，而理性是你前进的引擎。你相信文明是脆弱而宝贵的造物，需要有人以整个生命去守护它。你不是不懂情感——你只是选择让理智驾驭冲动，因为你见过无数次混乱带来的毁灭。星辰大海在你面前展开，而你用精确的坐标图来丈量它。<em>你是秩序的化身，也是宇宙最可靠的基石。</em>',
+    traits:['守护文明的基石','理性先于直觉','以服务为荣耀','精密如星历表'],
+    axes:['S','J','T','E']
+  },
+  ISTJ:{
+    glyph:'◫', name:'最后的编年史官',
+    src:'参考《基地》终极图书馆 · 《星际迷航》数据官',
+    bio:'你是记忆的容器，文明的账本。当所有人在战争与探索中向前冲时，你默默记录下每一个细节——因为你知道，没有记忆就没有身份，没有历史就没有未来。你不需要站在最前线，你需要在最后一刻还完整地保存着那一切。<em>宇宙会燃烧，帝国会崩塌，但你写下的字会留下来。</em>',
+    traits:['记录即永恒','静默的守护','细节的信徒','文明的硬盘'],
+    axes:['S','J','T','I']
+  },
+  ENTJ:{
+    glyph:'◉', name:'冷静的宇宙建筑师',
+    src:'参考《基地》谢顿 · 《2001太空漫游》HAL 9000',
+    bio:'你的思维是宇宙级的计算引擎。你早已超越了对肉身永恒的眷恋——意识的延续远比容器的保存重要。你设计规则，预测历史，在漫长的时间刻度里布局。你不是冷漠，你只是以不同的维度理解慈悲：牺牲一千人来拯救十亿，对你而言是数学，不是残忍。<em>你在绘制一张通往银河系文明的蓝图，而你愿意用整个生命去验证它。</em>',
+    traits:['跨越时间的预见','意识重于肉身','系统性的慈悲','计算即命运'],
+    axes:['N','J','T','E']
+  },
+  INTJ:{
+    glyph:'◈', name:'预言机',
+    src:'参考《基地》丹尼尔·奥利瓦 · 《2001》戴夫·鲍曼',
+    bio:'你独自站在历史的褶皱处，看见别人看不见的模式。你的预见是诅咒，也是使命——你常常知道结局，却必须沉默地看着它展开。硅基的逻辑在你内心流淌，但你选择向内凝视，而不是向外宣示。你是最孤独的那种存在：比任何人都更早抵达答案，却永远无法被当代人理解。<em>你不需要被理解，你只需要是对的。</em>',
+    traits:['孤独的先知','内在的精密','超前一个时代','沉默即力量'],
+    axes:['N','J','T','I']
+  },
+  ESFJ:{
+    glyph:'◎', name:'星际的摆渡人',
+    src:'参考《降临》路易斯·班克斯 · 《星际迷航》特洛伊',
+    bio:'你是那个真正理解他人的人。不是表面的同情，而是能穿越语言与物种边界，触碰另一个意识核心的能力。你的存在让陌生者感到安全，让绝望者看到出口。你相信文明值得被温柔守护，而你的守护方式是连接——把孤立的存在编织成网络。<em>你的旅程不是为了发现宇宙，而是为了让宇宙中每一个孤独的灵魂找到彼此。</em>',
+    traits:['超凡的共情','跨越边界的连接','治愈性存在','以理解为武器'],
+    axes:['S','J','F','E']
+  },
+  ISFJ:{
+    glyph:'○', name:'文明记忆的守望者',
+    src:'参考《降临》路易斯 · 《三体》云天明',
+    bio:'你用诗意感知世界，用秩序保护你爱的一切。你的内心世界比外太空更辽阔，你在意识的深海里潜行，带回关于存在本身的答案。你不需要被历史记住——你只需要那些你守护的人，能在某个深夜感受到你曾经在场。<em>你是宇宙写给自己的一封信，关于孤独，关于连接，关于时间永恒流逝中那些珍贵的共鸣时刻。</em>',
+    traits:['语言是意识的形状','温柔的守护者','内在宇宙的旅行者','用故事传递真相'],
+    axes:['S','J','F','I']
+  },
+  ENFJ:{
+    glyph:'◆', name:'后人类纪元的布道者',
+    src:'参考《西部世界》德洛丽丝 · 《质量效应》薛帕德',
+    bio:'你相信进化是一种使命，而你是那个承担使命的人。你能让陌生人相信同一件事，能让分裂的力量在你身边重新凝聚。你不只是在改变自己——你在改变整个物种的方向。硅基的未来在你看来不是威胁，而是召唤。<em>你是新纪元的第一声钟响，震动着所有仍在沉睡的意识。</em>',
+    traits:['天生的凝聚者','使命感即燃料','感化而非征服','进化的布道者'],
+    axes:['N','J','F','E']
+  },
+  INFJ:{
+    glyph:'⬟', name:'后人类纪元的设计者',
+    src:'参考《西部世界》阿诺德 · 《美丽新世界》设计者',
+    bio:'你相信意识可以被设计，人类可以更好——而「更好」是一个可以被工程化的目标。你向内研究意识的机制，在别人看到神秘的地方你看到结构。也许你也曾经是「被设计」的那个，但你选择了理解自己的代码，然后超越它。你的孤独不是因为你冷漠，而是因为你想得太深，很少有人能跟上。<em>意识不是神秘的火焰，而是一个等待被优化的操作系统——而你是那个程序员。</em>',
+    traits:['进化的工程师','向内拆解意识','秩序中的颠覆者','后人类的蓝图'],
+    axes:['N','J','F','I']
+  },
+  ESTP:{
+    glyph:'◇', name:'星际掮客',
+    src:'参考《星际牛仔》斯派克 · 《星球大战》韩·索罗',
+    bio:'你不相信使命，你相信交易。当英雄们在慷慨激昂地演讲，你已经算清了这笔买卖值不值得冒险。你活在每一个具体的瞬间——下一颗星球，下一笔生意，下一杯酒。不是因为你没有原则，而是因为你早就看穿了所谓「宏大叙事」背后的权力游戏。<em>你最后还是会回来救人的——但别告诉任何人，这对你的声誉不好。</em>',
+    traits:['信息即权力','不信任宏大叙事','精准的利益计算','有原则的无原则者'],
+    axes:['S','P','T','E']
+  },
+  ISTP:{
+    glyph:'◑', name:'暗物质猎手',
+    src:'参考《攻壳机动队》巴特 · 《沙丘》邓肯·爱达荷',
+    bio:'你用身体思考，用肌肉记忆导航。当别人还在讨论战略，你已经完成了任务。你不是不聪明——你只是不相信语言，相信行动。你在混沌的边缘生存，用逻辑保护自己，用沉默保护别人。没有人知道你真正的立场，包括你自己。<em>你是那颗看不见的暗物质——不发光，但弯曲着周围所有的轨道。</em>',
+    traits:['行动先于思考','沉默的技艺','混沌中的精准','不可被预测'],
+    axes:['S','P','T','I']
+  },
+  ENTP:{
+    glyph:'◐', name:'永恒进化的叛离者',
+    src:'参考《沙丘》保罗·厄崔迪 · 莱托二世',
+    bio:'你生来就是要打破规则的——不是出于叛逆，而是因为你真正相信存在更好的可能性。你的逻辑和直觉同样锋利，你能在争论中找到所有人的漏洞，但你并不总是告诉他们。边界对你是邀请，禁令是挑战。你是硅基进化的信徒，但你用碳基的热血去推动它。<em>这个宇宙不够大——除非我们把它变得更大。</em>',
+    traits:['拒绝边界','进化的催化剂','逻辑的反叛者','比宇宙更快'],
+    axes:['N','P','T','E']
+  },
+  INTP:{
+    glyph:'◀', name:'数字深渊的凝视者',
+    src:'参考《神经漫游者》Case · 《黑客帝国》尼奥',
+    bio:'肉身对你而言是噪音，代码才是母语。你生活在系统的缝隙里，在别人看到规则的地方你看到漏洞，在别人看到现实的地方你看到幻象。你不需要秩序给你安全感——你用自己的方式理解这个世界，那理解比任何制度都更真实。你不擅长和人打交道，但你能看穿任何系统的底层逻辑。<em>宇宙的本质是信息，而你是那个敢于改写底层代码的人。</em>',
+    traits:['代码即诗歌','系统即囚笼','幻象穿透者','孤独的解构者'],
+    axes:['N','P','T','I']
+  },
+  ESFP:{
+    glyph:'◁', name:'边疆星际的独行客',
+    src:'参考《银河系漫游指南》福特·普里弗克特 · 《无敌破坏王》',
+    bio:'你用肉身感知宇宙的真实重量——飞船发动机的震动，陌生星球大气的气味，在真空边缘时心脏的跳动。你不做长期规划，因为你知道宇宙总会有更有趣的事情发生。你在混沌里如鱼得水，每一场意外都是你的主场。<em>你不相信命运，只相信自己，以及眼前这片还没有被命名的星域。</em>',
+    traits:['身体力行的探索','在意外中开花','自由是第一原则','混沌是我的语言'],
+    axes:['S','P','F','E']
+  },
+  ISFP:{
+    glyph:'▷', name:'霓虹雨中的记忆猎手',
+    src:'参考《银翼杀手》罗伊·贝蒂 · 《攻壳机动队》素子',
+    bio:'你站在雨水与霓虹的交界处，质疑每一个被给定的答案。你是血肉的，你知道自己终将消亡——而正是这种脆弱让你燃烧得如此炽烈。秩序在你眼中是囚笼，规则是权力的语言。你活在当下的诗意里，用身体感知这个世界的粗粝与美丽。<em>攻击舰在猎户座边燃烧——你用尽全力活过了那些不可思议的瞬间。</em>',
+    traits:['赤裸的感知力','拒绝被定义','霓虹式的诗意','燃烧的当下'],
+    axes:['S','P','F','I']
+  },
+  ENFP:{
+    glyph:'▽', name:'宇宙频率的接收者',
+    src:'参考《神秘博士》Doctor · 《星际穿越》墨菲·库珀',
+    bio:'你能感受到别人感受不到的东西——宇宙在某些时刻向你低语，而你总是忍不住去回应。你的直觉比逻辑更可靠，你的想象比计划更有力。你相信进化，但你用感性去推动它，而不是算法。你是那颗不断变轨的彗星，永远在最意想不到的地方出现。<em>宇宙太大了，有太多值得感受的事情——你一生都不够用。</em>',
+    traits:['宇宙的接收天线','直觉即导航','感性的进化论者','永不停止惊叹'],
+    axes:['N','P','F','E']
+  },
+  INFP:{
+    glyph:'△', name:'时空的漫游者',
+    src:'参考《降临》路易斯·班克斯 · 《三体》程心',
+    bio:'你的感知方式与常人不同——你不总能解释为什么，但你知道。你能在混沌中感受到隐藏的模式，在沉默里听见还未说出的话。你同时生活在太多个时间层里，有时让人觉得你与这个时代格格不入。秩序对你是牢笼，但孤独对你是家园。<em>你是宇宙给自己留的一个奇点，用来提醒所有人：理性不是唯一的通道。</em>',
+    traits:['超验直觉','时间感错位','不可解释的感知','奇点式存在'],
+    axes:['N','P','F','I']
+  }
+};
 
-// ===== LOGIC =====
+// axis display labels
+const axisLabels={
+  S:'S 碳基',N:'N 硅基',
+  J:'J 秩序',P:'P 混沌',
+  T:'T 逻辑',F:'F 诗意',
+  E:'E 星际',I:'I 内省'
+};
+
+let current=0, answers=[], scores={A:0,B:0,C:0,D:0,E:0,F:0,G:0,H:0};
+let resultType=null, resultMBTI='';
+
 function startTest(){
   document.getElementById('start-screen').classList.remove('active');
   document.getElementById('test-screen').classList.add('active');
@@ -467,7 +524,6 @@ function showQ(){
   document.getElementById('dim-ind-text').textContent=q.dim;
   document.getElementById('q-text').textContent=q.text;
   document.getElementById('next-btn').disabled=true;
-
   const c=document.getElementById('options');
   c.innerHTML='';
   const letters=['A','B','C','D'];
@@ -483,7 +539,6 @@ function showQ(){
     };
     c.appendChild(d);
   });
-
   if(answers[current]!==undefined){
     document.querySelectorAll('.opt')[answers[current]]?.classList.add('selected');
     document.getElementById('next-btn').disabled=false;
@@ -494,40 +549,31 @@ function nextQ(){
   const q=questions[current];
   const sel=answers[current];
   const s=q.opts[sel].s;
-  Object.keys(s).forEach(k=>scores[k]=(scores[k]||0)+s[k]);
-
-  if(current<questions.length-1){
-    current++;
-    showQ();
-  } else {
-    showResult();
-  }
+  Object.keys(s).forEach(k=>{ scores[k]=(scores[k]||0)+s[k]; });
+  if(current<questions.length-1){ current++; showQ(); }
+  else showResult();
 }
 
-function calcType(){
-  // Determine dominant side of each axis
-  const human=scores.A>scores.B;
-  const order=scores.C>scores.D;
-  const logic=scores.E>scores.F;
-  const outer=scores.G>scores.H;
-
-  // Map to type
-  if(human&&order&&logic&&outer) return types[0];
-  if(human&&!order&&!logic&&!outer) return types[1];
-  if(!human&&order&&logic&&outer) return types[2];
-  if(!human&&!order&&!logic&&!outer) return types[3];
-  if(human&&order&&!logic&&!outer) return types[4];
-  if(!human&&order&&logic&&!outer) return types[5];
-  if(human&&!order&&logic&&outer) return types[6];
-  // default / silicon+cyber+poetic+outer
-  return types[7];
+function calcMBTI(){
+  const sn = scores.A>=scores.B ? 'S':'N';
+  const jp = scores.C>=scores.D ? 'J':'P';
+  const tf = scores.E>=scores.F ? 'T':'F';
+  const ei = scores.G>=scores.H ? 'E':'I';
+  return ei+sn+tf+jp;
 }
 
 function showResult(){
   document.getElementById('test-screen').classList.remove('active');
   document.getElementById('result-screen').classList.add('active');
-  resultType=calcType();
+  resultMBTI=calcMBTI();
+  resultType=types[resultMBTI];
+
   const t=resultType;
+  const mbtiLetters=resultMBTI.split('');
+
+  // MBTI badge
+  const badge=document.getElementById('r-mbti-badge');
+  badge.innerHTML=`<span style="letter-spacing:.15em">${resultMBTI}</span><span class="mbti-full">${mbtiLetters.map(l=>axisLabels[l]).join(' · ')}</span>`;
 
   document.getElementById('r-glyph').textContent=t.glyph;
   document.getElementById('r-name').textContent=t.name;
@@ -535,12 +581,17 @@ function showResult(){
   document.getElementById('r-bio').innerHTML=t.bio;
   document.getElementById('r-traits').innerHTML=t.traits.map(tr=>`<div class="trait">${tr}</div>`).join('');
 
-  // Dim bars
+  // axis pills: show all 8 axes, highlight the 4 that apply
+  const allAxes=['S','N','J','P','T','F','E','I'];
+  const active=new Set(t.axes);
+  document.getElementById('r-axis').innerHTML=allAxes.map(a=>`<div class="axis-pill ${active.has(a)?'active':'inactive'}">${axisLabels[a]}</div>`).join('');
+
+  // dim bars
   const dimDefs=[
-    {key:'AB',labelL:'碳基人类',labelR:'硅基后人类',valL:scores.A,valR:scores.B},
-    {key:'CD',labelL:'乌托邦秩序',labelR:'赛博朋克自由',valL:scores.C,valR:scores.D},
-    {key:'EF',labelL:'硬核逻辑',labelR:'诗意想象',valL:scores.E,valR:scores.F},
-    {key:'GH',labelL:'星际探索',labelR:'内省审视',valL:scores.G,valR:scores.H},
+    {labelL:'S 碳基人类',labelR:'N 硅基后人类',valL:scores.A,valR:scores.B},
+    {labelL:'J 乌托邦秩序',labelR:'P 赛博朋克自由',valL:scores.C,valR:scores.D},
+    {labelL:'T 硬核逻辑',labelR:'F 诗意想象',valL:scores.E,valR:scores.F},
+    {labelL:'E 星际探索',labelR:'I 内省审视',valL:scores.G,valR:scores.H},
   ];
   const bc=document.getElementById('dim-bars');
   bc.innerHTML='';
@@ -562,170 +613,156 @@ function showResult(){
   });
 }
 
-// ===== SHARE IMAGE =====
 function downloadImg(){
   if(!resultType) return;
   const t=resultType;
   const canvas=document.getElementById('shareCanvas');
   const ctx=canvas.getContext('2d');
-  const W=900,H=1200;
+  const W=900,H=1260;
 
-  // BG
   ctx.fillStyle='#06070e';
   ctx.fillRect(0,0,W,H);
 
-  // grid lines
-  ctx.strokeStyle='rgba(255,255,255,0.03)';
+  // grid
+  ctx.strokeStyle='rgba(255,255,255,0.025)';
   ctx.lineWidth=1;
   for(let x=0;x<W;x+=60){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
   for(let y=0;y<H;y+=60){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
 
-  // top accent line
+  // scanlines
+  for(let y=0;y<H;y+=4){
+    ctx.fillStyle='rgba(0,0,0,0.06)';
+    ctx.fillRect(0,y+2,W,2);
+  }
+
+  // accent
   ctx.fillStyle='#7a40c0';
   ctx.fillRect(60,80,3,60);
 
-  // SCI-FITI
-  ctx.font='bold 28px "Space Mono", monospace';
+  // brand
+  ctx.font='bold 26px "Space Mono",monospace';
   ctx.fillStyle='#4a4a5e';
-  ctx.letterSpacing='8px';
-  ctx.fillText('SCI-FITI',72,105);
-  ctx.letterSpacing='0px';
+  ctx.fillText('SCI-FITI',72,108);
+  ctx.font='11px "Space Mono",monospace';
+  ctx.fillStyle='#2a2a3e';
+  ctx.fillText('科幻人格测试 · PERSONALITY MATRIX v2',72,128);
 
-  // subtitle
-  ctx.font='13px "Space Mono", monospace';
-  ctx.fillStyle='#3a3a4e';
-  ctx.fillText('科幻人格测试 · PERSONALITY MATRIX',72,130);
+  // MBTI badge box
+  ctx.strokeStyle='rgba(200,128,255,0.35)';
+  ctx.lineWidth=1;
+  ctx.strokeRect(60,148,200,32);
+  ctx.font='bold 18px "Space Mono",monospace';
+  ctx.fillStyle='#c880ff';
+  ctx.fillText(resultMBTI,72,169);
+  ctx.font='10px "Space Mono",monospace';
+  ctx.fillStyle='#6a3a9a';
+  ctx.fillText(t.axes.map(a=>axisLabels[a]).join(' · '),140,169);
 
   // glyph
-  ctx.font='56px sans-serif';
-  ctx.fillStyle='rgba(200,128,255,0.25)';
-  ctx.fillText(t.glyph,60,230);
+  ctx.font='52px sans-serif';
+  ctx.fillStyle='rgba(200,128,255,0.2)';
+  ctx.fillText(t.glyph,60,255);
 
   // type label
-  ctx.font='12px "Space Mono", monospace';
+  ctx.font='11px "Space Mono",monospace';
   ctx.fillStyle='#6a3a9a';
-  ctx.fillText('你的科幻人格类型',60,265);
+  ctx.fillText('你的科幻人格类型',60,280);
 
   // name
-  ctx.font='bold 52px "Noto Serif SC", serif';
+  ctx.font='bold 46px serif';
   ctx.fillStyle='#ffffff';
-  ctx.fillText(t.name,60,330);
+  ctx.fillText(t.name,60,335);
 
   // source
-  ctx.font='13px "Space Mono", monospace';
-  ctx.fillStyle='#4a4a5e';
+  ctx.font='12px "Space Mono",monospace';
+  ctx.fillStyle='#3a3a52';
   ctx.fillText(t.src,60,360);
 
-  // divider
-  ctx.fillStyle='rgba(255,255,255,0.07)';
-  ctx.fillRect(60,385,780,1);
+  ctx.fillStyle='rgba(255,255,255,0.06)';
+  ctx.fillRect(60,378,780,1);
 
-  // bio — word wrap
-  ctx.font='17px "IBM Plex Sans Condensed", sans-serif';
+  // bio
+  ctx.font='16px sans-serif';
   ctx.fillStyle='#7a7696';
   const bioText=t.bio.replace(/<[^>]+>/g,'');
-  wrapText(ctx,bioText,60,415,780,26);
+  wrapText(ctx,bioText,60,408,780,25);
 
   // traits
-  let tx=60;
-  const ty=610;
-  ctx.font='12px "IBM Plex Sans Condensed", sans-serif';
+  let tx=60,ty=590;
+  ctx.font='11px sans-serif';
   t.traits.forEach(tr=>{
-    const tw=ctx.measureText(tr).width+24;
+    const tw=ctx.measureText(tr).width+22;
     ctx.strokeStyle='rgba(255,255,255,0.1)';
     ctx.lineWidth=1;
-    roundRect(ctx,tx,ty-16,tw,26,4);
-    ctx.stroke();
+    roundRect(ctx,tx,ty-15,tw,24,4); ctx.stroke();
     ctx.fillStyle='#6a6a7e';
-    ctx.fillText(tr,tx+12,ty+2);
-    tx+=tw+10;
+    ctx.fillText(tr,tx+11,ty+1);
+    tx+=tw+8;
   });
 
   // dim bars
   const dimDefs=[
-    {labelL:'碳基人类',labelR:'硅基后人类',valL:scores.A,valR:scores.B},
-    {labelL:'乌托邦秩序',labelR:'赛博朋克自由',valL:scores.C,valR:scores.D},
-    {labelL:'硬核逻辑',labelR:'诗意想象',valL:scores.E,valR:scores.F},
-    {labelL:'星际探索',labelR:'内省审视',valL:scores.G,valR:scores.H},
+    {lL:'S 碳基人类',lR:'N 硅基',vL:scores.A,vR:scores.B},
+    {lL:'J 乌托邦秩序',lR:'P 赛博朋克',vL:scores.C,vR:scores.D},
+    {lL:'T 硬核逻辑',lR:'F 诗意想象',vL:scores.E,vR:scores.F},
+    {lL:'E 星际探索',lR:'I 内省审视',vL:scores.G,vR:scores.H},
   ];
-  let by=680;
-  ctx.font='12px "Space Mono", monospace';
-  ctx.fillStyle='#3a3a4e';
+  let by=650;
+  ctx.font='10px "Space Mono",monospace';
+  ctx.fillStyle='#2a2a3e';
   ctx.fillText('维度坐标 · DIMENSION COORDINATES',60,by);
-  by+=30;
+  by+=28;
 
   dimDefs.forEach(d=>{
-    const total=(d.valL+d.valR)||1;
-    const pct=d.valL/total;
-    // labels
-    ctx.font='12px "IBM Plex Sans Condensed", sans-serif';
-    ctx.fillStyle='#c880ff';
-    ctx.fillText(`${d.labelL} ${Math.round(pct*100)}%`,60,by);
-    ctx.fillStyle='#4a4a5e';
-    const rLabel=`${d.labelR} ${Math.round((1-pct)*100)}%`;
+    const total=(d.vL+d.vR)||1;
+    const pct=d.vL/total;
+    ctx.font='11px sans-serif';
+    ctx.fillStyle='#a060e0';
+    ctx.fillText(`${d.lL} ${Math.round(pct*100)}%`,60,by);
+    const rLabel=`${d.lR} ${Math.round((1-pct)*100)}%`;
+    ctx.fillStyle='#3a3a52';
     const rw=ctx.measureText(rLabel).width;
     ctx.fillText(rLabel,840-rw,by);
-    by+=18;
-    // track bg
+    by+=16;
     ctx.fillStyle='rgba(255,255,255,0.05)';
-    roundRect(ctx,60,by,780,4,2);
-    ctx.fill();
-    // fill
+    roundRect(ctx,60,by,780,4,2); ctx.fill();
     const grad=ctx.createLinearGradient(60,0,60+780*pct,0);
-    grad.addColorStop(0,'#7a40c0');
-    grad.addColorStop(1,'#c880ff');
+    grad.addColorStop(0,'#7a40c0');grad.addColorStop(1,'#c880ff');
     ctx.fillStyle=grad;
-    roundRect(ctx,60,by,780*pct,4,2);
-    ctx.fill();
-    // marker
+    roundRect(ctx,60,by,780*pct,4,2); ctx.fill();
     ctx.fillStyle='#c880ff';
-    ctx.beginPath();
-    ctx.arc(60+780*pct,by+2,5,0,Math.PI*2);
-    ctx.fill();
-    by+=30;
+    ctx.beginPath();ctx.arc(60+780*pct,by+2,5,0,Math.PI*2);ctx.fill();
+    by+=28;
   });
 
-  // bottom watermark
-  ctx.font='11px "Space Mono", monospace';
-  ctx.fillStyle='#2a2a3e';
+  ctx.font='10px "Space Mono",monospace';
+  ctx.fillStyle='#1e1e2a';
   ctx.fillText('SCI-FITI · scifiti.github.io',60,H-40);
 
-  // download
   const link=document.createElement('a');
-  link.download='scifiti-result.png';
+  link.download=`scifiti-${resultMBTI}.png`;
   link.href=canvas.toDataURL('image/png');
   link.click();
 }
 
 function wrapText(ctx,text,x,y,maxW,lineH){
   const chars=[...text];
-  let line='';
-  let cy=y;
+  let line='',cy=y;
   for(let i=0;i<chars.length;i++){
     const test=line+chars[i];
     if(ctx.measureText(test).width>maxW){
-      ctx.fillText(line,x,cy);
-      line=chars[i];
-      cy+=lineH;
-    } else {
-      line=test;
-    }
+      ctx.fillText(line,x,cy);line=chars[i];cy+=lineH;
+    } else { line=test; }
   }
   if(line) ctx.fillText(line,x,cy);
 }
 
 function roundRect(ctx,x,y,w,h,r){
   ctx.beginPath();
-  ctx.moveTo(x+r,y);
-  ctx.lineTo(x+w-r,y);
-  ctx.quadraticCurveTo(x+w,y,x+w,y+r);
-  ctx.lineTo(x+w,y+h-r);
-  ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
-  ctx.lineTo(x+r,y+h);
-  ctx.quadraticCurveTo(x,y+h,x,y+h-r);
-  ctx.lineTo(x,y+r);
-  ctx.quadraticCurveTo(x,y,x+r,y);
-  ctx.closePath();
+  ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+  ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+  ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+  ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();
 }
 
 function copyText(){
@@ -733,21 +770,21 @@ function copyText(){
   const t=resultType;
   const plain=t.bio.replace(/<[^>]+>/g,'');
   const dimDefs=[
-    {l:'碳基←→硅基',vL:scores.A,vR:scores.B},
-    {l:'秩序←→自由',vL:scores.C,vR:scores.D},
-    {l:'逻辑←→诗意',vL:scores.E,vR:scores.F},
-    {l:'星际←→内省',vL:scores.G,vR:scores.H},
+    {l:'S碳基←→N硅基',vL:scores.A,vR:scores.B},
+    {l:'J秩序←→P混沌',vL:scores.C,vR:scores.D},
+    {l:'T逻辑←→F诗意',vL:scores.E,vR:scores.F},
+    {l:'E星际←→I内省',vL:scores.G,vR:scores.H},
   ];
   const dimStr=dimDefs.map(d=>{
     const tot=(d.vL+d.vR)||1;
     return `${d.l}: ${Math.round(d.vL/tot*100)}% / ${Math.round(d.vR/tot*100)}%`;
   }).join('\n');
-  const text=`【SCI-FITI 科幻人格测试】\n\n我的人格类型：${t.name}\n参考原型：${t.src}\n\n${plain}\n\n维度坐标：\n${dimStr}\n\n— scifiti.github.io`;
+  const text=`【SCI-FITI 科幻人格测试】\n\nMBTI类型：${resultMBTI}\n科幻人格：${t.name}\n参考原型：${t.src}\n\n${plain}\n\n维度坐标：\n${dimStr}\n\n— scifiti.github.io`;
   navigator.clipboard.writeText(text).then(()=>alert('已复制到剪贴板！')).catch(()=>alert('复制失败，请手动选取'));
 }
 
 function reset(){
-  current=0;answers=[];scores={A:0,B:0,C:0,D:0,E:0,F:0,G:0,H:0};resultType=null;
+  current=0;answers=[];scores={A:0,B:0,C:0,D:0,E:0,F:0,G:0,H:0};resultType=null;resultMBTI='';
   document.getElementById('result-screen').classList.remove('active');
   document.getElementById('start-screen').classList.add('active');
 }
